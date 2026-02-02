@@ -26,15 +26,59 @@ gmailButton.addEventListener('click', () => {
 // MOVE BLOCK
 const childBlock = document.querySelector('.child_block');
 
-let position = 0;
+let x = 0;
+let y = 0;
+const max = 448;
 
 const moveBlock = () => {
-    if (position < 448) {
-        position += 2;
-        childBlock.style.left = `${position}px`;
-
-        setTimeout(moveBlock, 20);
+    if (x < max && y === 0) {
+        x++;
+        childBlock.style.left = `${x}px`;
+    } else if (x >= max && y < max) {
+        y++;
+        childBlock.style.top = `${y}px`;
+    } else if (y >= max && x > 0) {
+        x--;
+        childBlock.style.left = `${x}px`;
+    } else if (x === 0 && y > 0) {
+        y--;
+        childBlock.style.top = `${y}px`;
+    }
+    if (!(x === 0 && y === 0)) {
+        setTimeout(moveBlock, 10);
     }
 };
 moveBlock();
 // MOVE BLOCK
+// watch block
+const secondsBlock = document.querySelector('#seconds');
+const startBtn = document.querySelector('#start');
+const stopBtn = document.querySelector('#stop');
+const resetBtn = document.querySelector('#reset');
+
+let seconds = 0;
+let intervalId = null;
+
+const updateTime = () => {
+    seconds++;
+    secondsBlock.textContent = seconds;
+};
+
+startBtn.addEventListener('click', () => {
+    if (intervalId !== null) return;
+
+    intervalId = setInterval(updateTime, 1000);
+});
+
+stopBtn.addEventListener('click', () => {
+    clearInterval(intervalId);
+    intervalId = null;
+});
+
+resetBtn.addEventListener('click', () => {
+    clearInterval(intervalId);
+    intervalId = null;
+    seconds = 0;
+    secondsBlock.textContent = seconds;
+});
+// watch block
