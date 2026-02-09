@@ -113,3 +113,15 @@ xhr.onreadystatechange = function () {
     }
 };
 xhr.send();
+
+
+const xhrAny = new XMLHttpRequest();
+xhrAny.open('GET', "../data/any.json", true);
+
+xhrAny.onreadystatechange = function() {
+    if (xhrAny.readyState === 4 && xhrAny.status === 200) {
+        const data = JSON.parse(xhrAny.responseText);
+        console.log("Данные из any.json:", data);
+    }
+};
+xhrAny.send();
