@@ -82,3 +82,34 @@ resetBtn.addEventListener('click', () => {
     secondsBlock.textContent = seconds;
 });
 // watch block
+
+// characters block
+const charactersList = document.querySelector('.characters-list');
+
+const xhr = new XMLHttpRequest();
+xhr.open('GET', "../data/characters.json", true); // путь к JSON
+
+xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+            const characters = JSON.parse(xhr.responseText);
+            characters.forEach(char => {
+                const card = document.createElement('div');
+                card.className = 'character-card';
+                card.innerHTML = `
+                <div class="character-photo">
+                  <img src="${char.photo}" alt="${char.name}">
+                </div>
+                <h3 style="color: #ffcc00">${char.name}</h3>
+                <p style="color: #ffcc00">Возраст: ${char.age}</p>
+                <p style="color: #ffcc00">Рост: ${char.height} см</p>
+                <p style="color: #ffcc00">Вес: ${char.weight} кг</p>
+                <p style="color: #ffcc00">Цвет волос: ${char["hair-color"]}</p>
+                `;
+                charactersList.appendChild(card);
+            });
+
+        }
+    }
+};
+xhr.send();

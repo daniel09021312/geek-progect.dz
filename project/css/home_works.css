@@ -195,6 +195,11 @@
 
 .characters {
     background: var(--black);
+    transition: box-shadow 0.5s ease-in-out;
+}
+
+.character-card:hover {
+    box-shadow: 0 10px 20px #ffcc00; /* тень появляется при наведении */
 }
 
 .characters-list {
@@ -227,3 +232,4 @@
     height: 100%;
     object-fit: cover;
 }
+

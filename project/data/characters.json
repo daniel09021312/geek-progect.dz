@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Гарри Поттер",
+        "age": 17,
+        "height": 170,
+        "weight": 60,
+        "hair-color": "черный",
+        "photo": "https://cool.klev.club/uploads/posts/2025-05/1452/thumbs/garri_potter_0_814381c1.jpg"
+    },
+    {
+        "name": "Гермиона Грейнджер",
+        "age": 17,
+        "height": 165,
+        "weight": 55,
+        "hair-color": "каштановый",
+        "photo": "https://i.pinimg.com/736x/12/89/65/128965997f3c0fa339822e5a655a53ae.jpg"
+    },
+    {
+        "name": "Волан де Мортон",
+        "age": 60,
+        "height": 175,
+        "weight": 70,
+        "hair-color": "лысый",
+        "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGP91fHFG5LjdNEtCDLVn7wH5Nng5p6_sUHQ&s"
+    }
+]
